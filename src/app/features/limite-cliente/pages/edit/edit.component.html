@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Edit Limite Cliente</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="documento">Documento:</label>
+      <input id="documento" formControlName="documento" type="text" disable />
+    </div>
+
+    <div>
+      <label for="numeroAgencia">Número Agência:</label>
+      <input id="numeroAgencia" formControlName="numeroAgencia" type="text" disable />
+    </div>
+
+    <div>
+      <label for="numeroConta">Número Conta:</label>
+      <input id="numeroConta" formControlName="numeroConta" type="text" disable />
+    </div>
+
+    <div>
+      <label for="limiteTransacao">Limite Transação:</label>
+      <input id="limiteTransacao" formControlName="limiteTransacao" type="text" />
+      <div *ngIf="form.get('limiteTransacao')?.invalid && form.get('limiteTransacao')?.touched" class="error">
+        Limite Transação is required and must be a valid number.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <button (click)="goBack()" style="margin-top: 20px;">Go Back</button>
+</div>

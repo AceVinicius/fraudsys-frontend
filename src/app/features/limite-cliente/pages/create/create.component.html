@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Limite Cliente Form</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="documento">Documento:</label>
+      <input id="documento" formControlName="documento" type="text" />
+      <div *ngIf="form.get('documento')?.invalid && form.get('documento')?.touched" class="error">
+        Documento is required and must be a number.
+      </div>
+    </div>
+
+    <div>
+      <label for="numeroAgencia">Número Agência:</label>
+      <input id="numeroAgencia" formControlName="numeroAgencia" type="text" />
+      <div *ngIf="form.get('numeroAgencia')?.invalid && form.get('numeroAgencia')?.touched" class="error">
+        Número Agência is required and must be a number.
+      </div>
+    </div>
+
+    <div>
+      <label for="numeroConta">Número Conta:</label>
+      <input id="numeroConta" formControlName="numeroConta" type="text" />
+      <div *ngIf="form.get('numeroConta')?.invalid && form.get('numeroConta')?.touched" class="error">
+        Número Conta is required and must be in this format: xxxx-x.
+      </div>
+    </div>
+
+    <div>
+      <label for="limiteTransacao">Limite Transação:</label>
+      <input id="limiteTransacao" formControlName="limiteTransacao" type="text" />
+      <div *ngIf="form.get('limiteTransacao')?.invalid && form.get('limiteTransacao')?.touched" class="error">
+        Limite Transação is required and must be a valid number.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <button (click)="goBack()" style="margin-top: 20px;">Go Back</button>
+</div>

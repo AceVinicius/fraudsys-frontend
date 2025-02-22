@@ -1,0 +1,6 @@
+{
+  "liveServer.settings.port": 5501,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/acevinicius/Documents/GitHub/fraudsys-frontend/.github/workflows/nodejs.yml"
+  }
+}

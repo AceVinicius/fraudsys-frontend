@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # frontend-dev:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   volumes:
+  #     - .:/usr/src/app
+  #   ports:
+  #     - 4200:4200
+  #   environment:
+  #     NODE_ENV: development
+
+  frontend-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - 4000:4000
+    environment:
+      NODE_ENV: production
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 512M

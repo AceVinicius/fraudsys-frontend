@@ -1,0 +1,39 @@
+<div>
+  <button (click)="onEfetuarTransferencia()" style="margin-bottom: 20px;">Nova Transferência</button>
+  <button (click)="onVisualizarLimiteCliente()" style="margin-bottom: 20px;">Consultar Limite Clientes</button>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Status</th>
+        <th>Documento Pagador</th>
+        <th>Agência Pagador</th>
+        <th>Conta Pagador</th>
+        <th>Limite Pagador</th>
+        <th>Documento Recebedor</th>
+        <th>Agência Recebedor</th>
+        <th>Conta Recebedor</th>
+        <th>Limite Recebedor</th>
+        <th>Valor Transferência</th>
+        <th>Data Transferência</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <td>{{ row.id }}</td>
+        <td class="status">{{ row.status == "1" ? "Pendente" : row.status == "2" ? "Aprovada" : "Rejeitada" }}</td>
+        <td class="red">{{ row.limiteClientePagador.documento }}</td>
+        <td class="red">{{ row.limiteClientePagador.numeroAgencia }}</td>
+        <td class="red">{{ row.limiteClientePagador.numeroConta }}</td>
+        <td class="red">{{ row.limiteClientePagador.limiteTransacao }}</td>
+        <td class="green">{{ row.limiteClienteRecebedor.documento }}</td>
+        <td class="green">{{ row.limiteClienteRecebedor.numeroAgencia }}</td>
+        <td class="green">{{ row.limiteClienteRecebedor.numeroConta }}</td>
+        <td class="green">{{ row.limiteClienteRecebedor.limiteTransacao }}</td>
+        <td>{{ row.valor }}</td>
+        <td>{{ row.dataTransacao | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Limite Cliente Form</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="documentoPagador">Documento Pagador:</label>
+      <input id="documentoPagador" formControlName="documentoPagador" type="text" />
+      <div *ngIf="form.get('documentoPagador')?.invalid && form.get('documentoPagador')?.touched" class="error">
+        Documento Pagador is required and must exist.
+      </div>
+    </div>
+
+    <div>
+      <label for="documentoRecebedor">Documento Recebedor:</label>
+      <input id="documentoRecebedor" formControlName="documentoRecebedor" type="text" />
+      <div *ngIf="form.get('documentoRecebedor')?.invalid && form.get('documentoRecebedor')?.touched" class="error">
+        Documento Recebedor is required and must exist.
+      </div>
+    </div>
+
+    <div>
+      <label for="valorTransferencia">Valor Transferencia:</label>
+      <input id="valorTransferencia" formControlName="valorTransferencia" type="text" />
+      <div *ngIf="form.get('valorTransferencia')?.invalid && form.get('valorTransferencia')?.touched" class="error">
+        Valor Transferencia is required and must be a number.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <button (click)="goBack()" style="margin-top: 20px;">Go Back</button>
+</div>

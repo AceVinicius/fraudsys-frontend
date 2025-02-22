@@ -1,0 +1,28 @@
+<div>
+  <button (click)="onCriarNovoLimite()" style="margin-bottom: 20px;">Criar Novo Limite</button>
+  <button (click)="onVisualizarTransacoes()" style="margin-bottom: 20px;">Visualizar Transações</button>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Documento</th>
+        <th>Agência</th>
+        <th>Conta</th>
+        <th>Limite</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows; let i = index">
+        <td>{{ row.documento }}</td>
+        <td>{{ row.numeroAgencia }}</td>
+        <td>{{ row.numeroConta }}</td>
+        <td>{{ row.limiteTransacao }}</td>
+        <td>
+          <button (click)="onUpdate(i)">Update</button>
+          <button (click)="onDelete(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
